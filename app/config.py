@@ -12,6 +12,6 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int
     
     class Config:
-        env_file = "/Users/new/VSCodeProjects/Fastapi_Kitchen_Dobraw/Dobraw_Kitchen/.env"
+        env_file = ".env"
     
 settings = Settings()
