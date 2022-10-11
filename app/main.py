@@ -2,7 +2,7 @@ from ast import Str
 from fastapi import FastAPI, Request, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse
-import models
+from models import *
 from database import engine
 from routers import post, user, auth, vote, template
 from fastapi.templating import Jinja2Templates
@@ -15,7 +15,7 @@ from sqlalchemy.orm import Session
 from database import engine, get_db
 
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
