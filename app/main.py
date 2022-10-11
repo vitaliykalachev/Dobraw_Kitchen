@@ -47,7 +47,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 def root(request: Request):
-    return {"Hello": "Привет, заходите в гости!!"}
+    return {"Hello": "Привет, заходите в гости!!!"}
 
 
 
@@ -85,4 +85,4 @@ async def read_item(request: Request, id: str):
 
 # @app.get("/test")
 # async def test(request: Request):
-#     return templates.TemplateResponse("test.html", {"request": request})
+#  1   return templates.TemplateResponse("test.html", {"request": request})
