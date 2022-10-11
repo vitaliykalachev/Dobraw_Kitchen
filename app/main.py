@@ -41,7 +41,7 @@ app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
-app.include_router(template.router)
+# app.include_router(template.router)
 
 
 templates = Jinja2Templates(directory="app/templates")
