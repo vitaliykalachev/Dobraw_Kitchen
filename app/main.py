@@ -19,7 +19,7 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-origins = []
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -39,7 +39,7 @@ app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
-app.include_router(template.router)
+# app.include_router(template.router)
 
 
 templates = Jinja2Templates(directory="templates")
