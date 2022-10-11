@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 from .database import engine, get_db
 
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
