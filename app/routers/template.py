@@ -7,14 +7,14 @@ from fastapi.responses import HTMLResponse
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.exc import IntegrityError
 from pydantic import BaseModel
-from database import Base
+from ..database import Base, get_db
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
-from models import User
+from ..models import User
 from jose import jwt
-from config import settings
+from ..config import settings
 from sqlalchemy.orm import Session
-from database import get_db
-import utils
+
+from .. import utils
 from . import auth
 
 

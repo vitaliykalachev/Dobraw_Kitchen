@@ -3,11 +3,10 @@ from sqlalchemy.orm import Session
 from typing import Optional, List, Optional
 
 from sqlalchemy import func
-import oauth2
-import models, schemas, oauth2
+from .. import models, schemas, oauth2
 
 
-from database import engine, get_db
+from ..database import engine, get_db
 
 router = APIRouter(
     prefix="/posts",

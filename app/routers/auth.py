@@ -3,7 +3,7 @@ from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
-import database, schemas, models, utils, oauth2
+from .. import database, schemas, models, utils, oauth2
 
 router = APIRouter(tags=['Authentication'])
 

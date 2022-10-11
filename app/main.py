@@ -2,20 +2,22 @@ from ast import Str
 from fastapi import FastAPI, Request, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse
-from models import *
-from database import engine
-from routers import post, user, auth, vote, template
 from fastapi.templating import Jinja2Templates
-from config import settings
+from fastapi.middleware.cors import CORSMiddleware
+from . import models
+from .database import engine
+from .routers import post, user, auth, vote, template
+
+from .config import settings
 from pydantic import BaseModel
 from typing import Union
-from fastapi.middleware.cors import CORSMiddleware
-import schemas
+
+from . import schemas
 from sqlalchemy.orm import Session
-from database import engine, get_db
+from .database import engine, get_db
 
 
-Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -32,7 +34,7 @@ app.add_middleware(
 
 
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 
 app.include_router(post.router)

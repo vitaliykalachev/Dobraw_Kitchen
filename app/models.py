@@ -1,7 +1,7 @@
 from email.policy import default
 from enum import unique
 from xmlrpc.client import Boolean, boolean
-from database import Base
+from .database import Base
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
