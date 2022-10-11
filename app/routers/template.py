@@ -37,7 +37,7 @@ router = APIRouter(
 #     lastName = Column(String, nullable=False)
 #     email = Column(String, nullable=False)
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="app/templates")
 
 
 
