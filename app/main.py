@@ -49,7 +49,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
 def root(request: Request):
-    return {"Hello": "Привет, заходите в гости2!!!!"}
+    return {"Hello": "Привет, заходите в гости!"}
 
 
 
