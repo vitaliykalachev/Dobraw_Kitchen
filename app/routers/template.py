@@ -3,7 +3,7 @@ from fastapi import FastAPI, APIRouter, Request, Depends, responses, status, Res
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from sqlalchemy.exc import IntegrityError
 from pydantic import BaseModel
@@ -40,6 +40,10 @@ router = APIRouter(
 templates = Jinja2Templates(directory="app/templates")
 
 
+
+@router.get("/{id}", response_class=JSONResponse)
+async def read_item(request: Request, id: str):
+    return templates.TemplateResponse("index.html", {"request": request, "id": id})
 
 @router.get("/")
 async def index(request: Request, message: str = None):

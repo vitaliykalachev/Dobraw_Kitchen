@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session
 from .database import engine, get_db
 
 
-# models.Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -41,15 +41,15 @@ app.include_router(post.router)
 app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
-app.include_router(template.router)
+# app.include_router(template.router)
 
 
-templates = Jinja2Templates(directory="app/templates")
+
 
 
 @app.get("/")
 def root(request: Request):
-    return {"Hello": "Привет, заходите в гости!!"}
+    return {"Hello": "Привет, как дела, заходи в гости"}
 
 
 
@@ -58,9 +58,7 @@ def root(request: Request):
 
 
 
-@app.get("/{id}", response_class=JSONResponse)
-async def read_item(request: Request, id: str):
-    return templates.TemplateResponse("index.html", {"request": request, "id": id})
+
 
 # @app.get("/", response_class=HTMLResponse, response_model=schemas.UserOut)
 # def read_item(request: Request, user: str, db: Session = Depends(get_db)):
